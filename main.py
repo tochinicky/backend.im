@@ -41,10 +41,10 @@ def hello_world():
 
 @app.post("/notify")
 def notify(data: Notification):
-    print("Received notification:", data)
-    return {"status": "success"}
+    print(f"Received notification: {data.model_dump()}")
+    return {"status": "success", "message": data.model_dump()}
 
 @app.post("/test-results")
 def test_results(data: TestResult):
-    print("Received test results:", data)
-    return {"status": "success"}
+    print(f"Received test results: {data.model_dump()}")
+    return {"status": "success", "message": data.model_dump()}
